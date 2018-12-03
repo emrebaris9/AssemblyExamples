@@ -1,154 +1,109 @@
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  1
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-Warning[205]: Found directive in column 1. (LIST)
-                      00001 LIST P=16F877A
-                      00002 #INCLUDE <P16F877A.INC>
+Warning[205]: Found directive in column 1. (INCLUDE)
+                      00001 INCLUDE<P16F877.INC>
                       00001         LIST
                       00002 
                       00003 ;==========================================================================
-                      00004 ;  MPASM PIC16F877A processor include
+                      00004 ;  MPASM PIC16F877 processor include
                       00005 ; 
                       00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
                       00007 ;==========================================================================
                       00008 
-                      00566         LIST
-                      00003 
-  00000020            00004 SAYAC1 EQU 0X20
-  00000021            00005 SAYAC2 EQU 0X21
-  00000022            00006 SAYI EQU 0X22
-                      00007 
-                      00008 
+Message[301]: MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+                      00540         LIST
+  00000021            00002 SAYAC1 EQU 0X21
+  00000022            00003 SAYAC2 EQU 0X22
 Warning[205]: Found directive in column 1. (ORG)
-0000                  00009 ORG 0X00
+0000                  00004 ORG 0X00
+Warning[205]: Found directive in column 1. (BANKSEL)
+0000   1683 1303      00005 BANKSEL TRISC
+Warning[203]: Found opcode in column 1. (CLRF)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0187           00006 CLRF TRISC
+Warning[205]: Found directive in column 1. (BANKSEL)
+0003   1283 1303      00007 BANKSEL PORTC
+Warning[203]: Found opcode in column 1. (CLRF)
+0005   0187           00008 CLRF PORTC
+Warning[205]: Found directive in column 1. (BANKSEL)
+0006   1683 1303      00009 BANKSEL SPBRG 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0008   3033           00010 MOVLW D'51'
+Warning[203]: Found opcode in column 1. (MOVWF)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0099           00011 MOVWF SPBRG
+Warning[205]: Found directive in column 1. (BANKSEL)
+000A   1683 1303      00012 BANKSEL TXSTA
+Warning[203]: Found opcode in column 1. (MOVLW)
+000C   3024           00013 MOVLW B'00100100'
+Warning[203]: Found opcode in column 1. (MOVWF)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+000D   0098           00014 MOVWF TXSTA
+Warning[205]: Found directive in column 1. (BANKSEL)
+000E   1283 1303      00015 BANKSEL RCSTA
+Warning[203]: Found opcode in column 1. (MOVLW)
+0010   3080           00016 MOVLW B'10000000'
+Warning[203]: Found opcode in column 1. (MOVWF)
+0011   0098           00017 MOVWF RCSTA
+0012                  00018 DONGU
+Warning[203]: Found opcode in column 1. (BTFSS)
+0012   1E0C           00019 BTFSS PIR1,TXIF
 Warning[203]: Found opcode in column 1. (GOTO)
-0000   2801           00010 GOTO HAZIRLA
-                      00011 
-0001                  00012 HAZIRLA
-0001   1683 1303      00013         BANKSEL SPBRG
-0003   3019           00014         MOVLW D'25'
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0004   0099           00015         MOVWF SPBRG
-                      00016 
-0005   1683 1303      00017         BANKSEL TRISC
-0007   30C0           00018         MOVLW B'11000000'
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0008   0087           00019         MOVWF TRISC
-                      00020 
-0009   1683 1303      00021         BANKSEL TRISB
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-000B   0186           00022         CLRF TRISB
-000C   1283 1303      00023         BANKSEL PORTB
-000E   0186           00024         CLRF PORTB
-                      00025         
-000F   1683 1303      00026         BANKSEL TRISD
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0011   0188           00027         CLRF TRISD
-0012   1283 1303      00028         BANKSEL PORTD
-0014   0188           00029         CLRF PORTD
-                      00030 
-0015   1683 1303      00031         BANKSEL TXSTA
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0017   1218           00032         BCF TXSTA,SYNC 
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0018   1518           00033         BSF TXSTA,BRGH 
-                      00034         
-0019   1283 1303      00035         BANKSEL RCSTA
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  2
+0013   2812           00020 GOTO DONGU
+Warning[203]: Found opcode in column 1. (MOVLW)
+0014   3053           00021 MOVLW 'S'
+Warning[203]: Found opcode in column 1. (MOVWF)
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-001B   1798           00036         BSF RCSTA,SPEN 
-001C   1618           00037         BSF RCSTA,CREN 
-                      00038 
-001D   1683 1303      00039         BANKSEL PR2
-001F   30C7           00040         MOVLW D'199'
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0020   0092           00041         MOVWF PR2
-                      00042         
-0021   1283 1303      00043         BANKSEL T2CON
-0023   3004           00044         MOVLW B'00000100'
-0024   0092           00045         MOVWF T2CON
-0025   1283 1303      00046         BANKSEL CCP1CON
-0027   300C           00047         MOVLW B'00001100'
-0028   0097           00048         MOVWF CCP1CON
-                      00049 
-0029   1283 1303      00050         BANKSEL CCPR1L
-002B   3064           00051         MOVLW D'100'
-002C   0095           00052         MOVWF CCPR1L  
-002D   0187           00053         CLRF PORTC
-                      00054 
-002E                  00055 LOOP
-002E   1E8C           00056         BTFSS PIR1,RCIF
-002F   282E           00057         GOTO LOOP
-                      00058         
-0030                  00059 KONTROL
-                      00060 
-0030   1283 1303      00061         BANKSEL RCREG
-                      00062 
-0032   081A           00063         MOVF RCREG,W
-0033   3C52           00064         SUBLW A'R' ; MOTORU SAGA DONDUR
-0034   1903           00065         BTFSC STATUS,Z
-0035   2843           00066         GOTO KOMUT_R
-                      00067 
-0036   081A           00068         MOVF RCREG,W
-0037   3C4C           00069         SUBLW A'L' ; MOTORU SOLA DONDUR
-0038   1903           00070         BTFSC STATUS,Z
-0039   2846           00071         GOTO KOMUT_L
-                      00072         
-003A   081A           00073         MOVF RCREG,W
-003B   3C48           00074         SUBLW A'H' ; MOTOR HIZI ARTTIR
-003C   1903           00075         BTFSC STATUS,Z
-003D   2849           00076         GOTO KOMUT_H
-                      00077 
-003E   081A           00078         MOVF RCREG,W
-003F   3C59           00079         SUBLW 'Y' ; MOTOR HIZI AZALT
-0040   1903           00080         BTFSC STATUS,Z
-0041   2850           00081         GOTO KOMUT_Y
-                      00082 
-0042   282E           00083         GOTO LOOP
-                      00084 
-0043                  00085 KOMUT_R
-0043   1086           00086         BCF PORTB,1
-0044   1406           00087         BSF PORTB,0
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  3
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-0045   282E           00088         GOTO LOOP
-                      00089 
-0046                  00090 KOMUT_L
-0046   1486           00091         BSF PORTB,1
-0047   1006           00092         BCF PORTB,0
-0048   282E           00093         GOTO LOOP       
-                      00094 
-0049                  00095 KOMUT_H
-0049   30C8           00096         MOVLW D'200'
-004A   0215           00097         SUBWF CCPR1L,W
-004B   1903           00098         BTFSC STATUS,Z
-004C   282E           00099         GOTO LOOP
-004D   300A           00100         MOVLW D'10'
-004E   0795           00101         ADDWF CCPR1L,F
-004F   282E           00102         GOTO LOOP
-                      00103 
-0050                  00104 KOMUT_Y
-0050   3000           00105         MOVLW D'0'
-0051   0215           00106         SUBWF CCPR1L,W
-0052   1903           00107         BTFSC STATUS,Z
-0053   282E           00108         GOTO LOOP
-0054   300A           00109         MOVLW D'10'
-0055   0295           00110         SUBWF CCPR1L,F
-0056   282E           00111         GOTO LOOP
+0015   0099           00022 MOVWF TXREG
+Warning[203]: Found opcode in column 1. (CALL)
+0016   201E           00023 CALL GECIKME
+Warning[203]: Found opcode in column 1. (MOVLW)
+0017   304F           00024 MOVLW 'O'
+Warning[203]: Found opcode in column 1. (MOVWF)
+0018   0099           00025 MOVWF TXREG
+Warning[203]: Found opcode in column 1. (CALL)
+0019   201E           00026 CALL GECIKME
+Warning[203]: Found opcode in column 1. (MOVLW)
+001A   3053           00027 MOVLW 'S'
+Warning[203]: Found opcode in column 1. (MOVWF)
+001B   0099           00028 MOVWF TXREG
+Warning[203]: Found opcode in column 1. (CALL)
+001C   201E           00029 CALL GECIKME
+Warning[203]: Found opcode in column 1. (GOTO)
+001D   2812           00030 GOTO DONGU
+001E                  00031 GECIKME
+Warning[203]: Found opcode in column 1. (MOVLW)
+001E   30FF           00032 MOVLW 0XFF
+Warning[203]: Found opcode in column 1. (MOVWF)
+001F   00A1           00033 MOVWF SAYAC1
+0020                  00034 DONGU1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0020   30FF           00035 MOVLW 0XFF
+Warning[203]: Found opcode in column 1. (MOVWF)
+0021   00A2           00036 MOVWF SAYAC2
+0022                  00037 DONGU2
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0022   0BA2           00038 DECFSZ SAYAC2,F
+Warning[203]: Found opcode in column 1. (GOTO)
+0023   2822           00039 GOTO DONGU2
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0024   0BA1           00040 DECFSZ SAYAC1,F
+Warning[203]: Found opcode in column 1. (GOTO)
+0025   2820           00041 GOTO DONGU1
+Warning[203]: Found opcode in column 1. (RETURN)
+0026   0008           00042 RETURN
 Warning[205]: Found directive in column 1. (END)
-                      00112 END
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  4
+                      00043 END
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  3
 
 
 SYMBOL TABLE
@@ -161,7 +116,6 @@ ADCON0                            0000001F
 ADCON1                            0000009F
 ADCS0                             00000006
 ADCS1                             00000007
-ADCS2                             00000006
 ADDEN                             00000003
 ADFM                              00000007
 ADIE                              00000006
@@ -174,10 +128,6 @@ BCLIF                             00000003
 BF                                00000000
 BRGH                              00000002
 C                                 00000000
-C1INV                             00000004
-C1OUT                             00000006
-C2INV                             00000005
-C2OUT                             00000007
 CCP1CON                           00000017
 CCP1IE                            00000002
 CCP1IF                            00000002
@@ -205,34 +155,22 @@ CCPR2L                            0000001B
 CHS0                              00000003
 CHS1                              00000004
 CHS2                              00000005
-CIS                               00000003
 CKE                               00000006
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  5
+CKP                               00000004
+CREN                              00000004
+CSRC                              00000007
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  4
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-CKP                               00000004
-CM0                               00000000
-CM1                               00000001
-CM2                               00000002
-CMCON                             0000009C
-CMIE                              00000006
-CMIF                              00000006
-CREN                              00000004
-CSRC                              00000007
-CVR0                              00000000
-CVR1                              00000001
-CVR2                              00000002
-CVR3                              00000003
-CVRCON                            0000009D
-CVREN                             00000007
-CVROE                             00000006
-CVRR                              00000005
-D                                 00000005
-DATA_ADDRESS                      00000005
-DC                                00000001
+DONGU                             00000012
+DONGU1                            00000020
+DONGU2                            00000022
 D_A                               00000005
 D_NOT_A                           00000005
 EEADR                             0000010D
@@ -248,11 +186,11 @@ F                                 00000001
 FERR                              00000002
 FSR                               00000004
 GCEN                              00000007
+GECIKME                           0000001E
 GIE                               00000007
 GO                                00000002
 GO_DONE                           00000002
 GO_NOT_DONE                       00000002
-HAZIRLA                           00000001
 I2C_DATA                          00000005
 I2C_READ                          00000002
 I2C_START                         00000003
@@ -265,18 +203,6 @@ INTE                              00000004
 INTEDG                            00000006
 INTF                              00000001
 IRP                               00000007
-KOMUT_H                           00000049
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  6
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
-KOMUT_L                           00000046
-KOMUT_R                           00000043
-KOMUT_Y                           00000050
-KONTROL                           00000030
-LOOP                              0000002E
 NOT_A                             00000005
 NOT_ADDRESS                       00000005
 NOT_BO                            00000000
@@ -295,6 +221,12 @@ OBF                               00000006
 OERR                              00000001
 OPTION_REG                        00000081
 P                                 00000004
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 PCFG0                             00000000
 PCFG1                             00000001
 PCFG2                             00000002
@@ -325,12 +257,6 @@ R                                 00000002
 RA0                               00000000
 RA1                               00000001
 RA2                               00000002
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  7
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 RA3                               00000003
 RA4                               00000004
 RA5                               00000005
@@ -354,6 +280,12 @@ RC6                               00000006
 RC7                               00000007
 RC8_9                             00000006
 RC9                               00000006
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 RCD8                              00000000
 RCEN                              00000003
 RCIE                              00000005
@@ -381,15 +313,8 @@ RX9D                              00000000
 R_NOT_W                           00000002
 R_W                               00000002
 S                                 00000003
-SAYAC1                            00000020
-SAYAC2                            00000021
-SAYI                              00000022
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  8
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
+SAYAC1                            00000021
+SAYAC2                            00000022
 SEN                               00000000
 SMP                               00000007
 SPBRG                             00000099
@@ -414,6 +339,12 @@ T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 T1CKPS0                           00000004
 T1CKPS1                           00000005
 T1CON                             00000010
@@ -443,12 +374,6 @@ TOUTPS2                           00000005
 TOUTPS3                           00000006
 TRISA                             00000085
 TRISA0                            00000000
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE  9
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 TRISA1                            00000001
 TRISA2                            00000002
 TRISA3                            00000003
@@ -473,6 +398,12 @@ TRISC5                            00000005
 TRISC6                            00000006
 TRISC7                            00000007
 TRISD                             00000088
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 TRISD0                            00000000
 TRISD1                            00000001
 TRISD2                            00000002
@@ -502,12 +433,6 @@ WR                                00000001
 WREN                              00000002
 WRERR                             00000003
 Z                                 00000002
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE 10
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _BODEN_OFF                        00003FBF
 _BODEN_ON                         00003FFF
 _BOREN_OFF                        00003FBF
@@ -515,9 +440,10 @@ _BOREN_ON                         00003FFF
 _CONFIG                           00002007
 _CPD_OFF                          00003FFF
 _CPD_ON                           00003EFF
-_CP_ALL                           00001FFF
+_CP_ALL                           00000FCF
+_CP_HALF                          00001FDF
 _CP_OFF                           00003FFF
-_CP_ON                            00001FFF
+_CP_UPPER_256                     00002FEF
 _DEBUG_OFF                        00003FFF
 _DEBUG_ON                         000037FF
 _DEVID1                           00002006
@@ -531,6 +457,12 @@ _IDLOC1                           00002001
 _IDLOC2                           00002002
 _IDLOC3                           00002003
 _LP_OSC                           00003FFC
+MPASM  5.51                           SOS.ASM   8-29-2018  21:31:14         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _LVP_OFF                          00003F7F
 _LVP_ON                           00003FFF
 _PWRTE_OFF                        00003FFF
@@ -540,10 +472,10 @@ _WDTE_OFF                         00003FFB
 _WDTE_ON                          00003FFF
 _WDT_OFF                          00003FFB
 _WDT_ON                           00003FFF
-_WRT_1FOURTH                      00003BFF
-_WRT_256                          00003DFF
-_WRT_HALF                         000039FF
-_WRT_OFF                          00003FFF
+_WRT_ENABLE_OFF                   00003DFF
+_WRT_ENABLE_ON                    00003FFF
+_WRT_OFF                          00003DFF
+_WRT_ON                           00003FFF
 _XT_OSC                           00003FFD
 __16F877A                         00000001
 __DEBUG                           1
@@ -551,23 +483,16 @@ __DEBUG                           1
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
-0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
-0040 : XXXXXXXXXXXXXXXX XXXXXXX--------- ---------------- ----------------
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXX--------- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:    87
-Program Memory Words Free:  8105
-
-MPASM  5.51                         MOTOR.ASM   8-29-2018  21:58:56         PAGE 11
-
-
-
-
+Program Memory Words Used:    39
+Program Memory Words Free:  8153
 
 
 Errors   :     0
-Warnings :     4 reported,     0 suppressed
-Messages :     7 reported,     0 suppressed
+Warnings :    37 reported,     0 suppressed
+Messages :     4 reported,     0 suppressed
 
 
