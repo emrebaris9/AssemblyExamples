@@ -1,0 +1,11 @@
+Warning[205] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 1 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 9 : Found directive in column 1. (ORG)
+Warning[203] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 10 : Found opcode in column 1. (GOTO)
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 15 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 22 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 27 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 32 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 33 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 41 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] C:\USERS\YUNUS\DESKTOP\CALISMA\ASENKRON_PWM\MOTOR.ASM 112 : Found directive in column 1. (END)
