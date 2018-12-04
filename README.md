@@ -12,3 +12,10 @@
 
 ![seri iletisimo](https://user-images.githubusercontent.com/28316968/49404468-9693f480-f760-11e8-84df-484356316298.PNG)
 
+---------------------------------------------------------------------------------------------------------------------------------------
+
+### ADC_klima
+
+![ekran alintisi11](https://user-images.githubusercontent.com/28316968/49478513-01acfc00-f831-11e8-8843-70972ff8f713.PNG)
+
+
