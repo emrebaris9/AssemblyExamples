@@ -22,3 +22,9 @@
 ### HesapMakinesi
 
 ![hesap](https://user-images.githubusercontent.com/28316968/49579445-4a61d380-f95d-11e8-82da-3ca180793cf6.PNG)
+
+### TMR_1
+
+![ekran alintisi](https://user-images.githubusercontent.com/28316968/49665471-073f5780-fa66-11e8-8074-41c0fe568a44.PNG)
+
+
