@@ -27,4 +27,7 @@
 
 ![ekran alintisi](https://user-images.githubusercontent.com/28316968/49665471-073f5780-fa66-11e8-8074-41c0fe568a44.PNG)
 
+### PWM
+
+![pwm](https://user-images.githubusercontent.com/28316968/49700883-bb231d00-fbf5-11e8-9f18-c886791dbfab.PNG)
 
